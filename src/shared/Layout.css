@@ -1,0 +1,38 @@
+.layout,
+.wc{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.wc{
+    height: 10rem;
+    margin-top: 5rem;
+}
+
+.layout ul{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.logoimg{
+    width: 6%
+}
+img{
+width: 100%;
+}
+
+
+li{
+    list-style: none;
+}
+
+.nav li a{
+    text-decoration: none!important;
+    color: aliceblue!important;
+
+}
+
+
+

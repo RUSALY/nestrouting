@@ -1,0 +1,91 @@
+.cont {
+    color: aliceblue!important;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+
+}
+.contdiv{
+    width: 85%;
+
+}
+.story{
+    
+   
+    margin-top: 2rem;
+
+}
+
+.h2{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem!important
+}
+
+.row{
+    margin:0!important;
+    width: 100%!important;
+    
+}
+/* .plan{
+    height: 60%;
+    border:2px solid white;
+
+  
+} */
+
+
+.aboutus{
+    /* display: flex;
+    justify-content: center; */
+    
+}
+.itemcoldiv2{
+    display: flex;
+    justify-content: space-around; 
+    padding-top: 1.3rem;
+    
+}
+
+.item{
+    display: flex;
+    justify-content: space-around; 
+    padding-top: 1.3rem;
+    
+}
+
+.itemcoldiv2 ul{
+    width: 60%;
+}
+
+/* .itemcoldiv2 li{
+    padding: 1rem;
+}  */
+
+
+
+/* .item>div{
+    width:100%
+} */
+img{
+  width: 100%!important;
+
+}
+
+.li{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding-bottom: 1.5rem;
+
+    
+}
+.lidiv1{
+    width: 20%;
+}
+.lidiv2{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    
+}
