@@ -1,0 +1,11 @@
+.pt{
+    color: aliceblue !important;
+    display: flex;
+    /* justify-content:space-between; */
+    flex-direction: column;
+    width: 70%;
+   
+}
+.pts{
+    margin-top: 50px;
+}

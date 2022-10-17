@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./Layout.css";
 import log from "../images/baglogo.jpg";
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
 
 
 
 import { getAuth,  signInWithPopup , signOut, GoogleAuthProvider } from "firebase/auth";
 import InitializeAuthentication from '../components/Firebase/InitializationAuthentication';
 import { useState } from 'react';
+import { UserContext } from '../App';
 
     
 
@@ -20,19 +21,22 @@ import { useState } from 'react';
 
 
 
-const Layout = () => {
-    const [user, setUser] = useState({})
+const Layout = ( ) => {
 
+    const [user, setUser]= useContext(UserContext)
+    // const {displayName}= useParams();
+    // const [myuser, setmyUser] = useState({displayName})
+    // console.log(myuser)
   
-    function handleLogin() {
-        signInWithPopup(auth, GoogleProvider).then((result) => {
-            const user = {}
-            user.displayName = result.user.displayName
-            user.email = result.user.email
-            user.photoURL = result.user.photoURL
-            setUser(user)
-          })
-        }
+    // function handleLogin() {
+    //     signInWithPopup(auth, GoogleProvider).then((result) => {
+    //         const user = {}
+    //         user.displayName = result.user.displayName
+    //         user.email = result.user.email
+    //         user.photoURL = result.user.photoURL
+    //         setUser(user)
+    //       })
+    //     }
       
 
 
@@ -44,7 +48,7 @@ const Layout = () => {
     //     console.log(auth.currentUser)}
  
 
-        console.log(user)
+  
 
 
 
@@ -52,27 +56,52 @@ const Layout = () => {
            
         <div  className="layout">
             <div className="logoimg"><img src={log} alt="" /></div>
-            <ul className="nav">
-                <li><NavLink to ="/home"> Home</NavLink> </li>
-                <li><NavLink to ="/about"> About Us</NavLink> </li>
-                <li><NavLink to ="/product"> Product</NavLink> </li>
-                <li><NavLink to ="/pricing"> Pricing</NavLink> </li>
-                <li><NavLink to ="/contact"> Contact Us</NavLink> </li>
-                <li>
-                    {user.email? <>
-                        <span className="username">{(user.displayName)}</span>
+            <div className="nav1">
 
-                        <button id="logout"  onClick={handleLogout}>Log Out</button>
+                    <ul className="nav">
+                    <li><NavLink to ="/"> Home</NavLink> </li>
+                    <li><NavLink to ="/about"> About Us</NavLink> </li>
+                    <li><NavLink to ="/product"> Product</NavLink> </li>
+                    <li><NavLink to ="/pricing"> Pricing</NavLink> </li>
+                    <li><NavLink to ="/contact"> Contact Us</NavLink> </li>
+                    <li><NavLink to ="/users"> Users</NavLink> </li>
+                    
+                    
+                        <li>{user.email? <>
+                    
+                            
+                            <li>
+                                <span className="username">{(user.email)}</span>
+                                
+                                <button id="logout"  onClick={handleLogout}>Log Out</button>
+                                
+                            </li>
+                        
+                            </>:
+                            <>
+                            
+                                
+                                
+                                <li className="login">
+                                <span><NavLink to ="/reg"> <button className="reg">Registration</button></NavLink> </span>
+                                <span><NavLink to ="/log"> <button className="reg">Log In</button></NavLink></span>
+                                {/* <button id="login" onClick={handleLogin}>Log In</button> */}
+                                </li>
+                        
+                            </>
+                    
+                        }</li>
 
-                    </>:<><button id="login" onClick={handleLogin}>Log In</button>
-                    </>}
+                    </ul>
 
-                   
-                    {/* <button id="logout"  onClick={handleAuth}>get auth</button> */}
-                </li>
-                
-                
-            </ul>
+
+            </div>
+           
+           
+            
+          
+        
+            
             
         </div>
         
@@ -107,3 +136,100 @@ export default Layout;
     //     login.style.display = 'inline'
 
     //   }
+
+
+
+
+//     <div className="nav1">
+                
+                
+//     {user.email? <>
+//         <ul className="nav">
+//             <li><NavLink to ="/"> Home</NavLink> </li>
+//             <li><NavLink to ="/about"> About Us</NavLink> </li>
+//             <li><NavLink to ="/product"> Product</NavLink> </li>
+//             <li><NavLink to ="/pricing"> Pricing</NavLink> </li>
+//             <li><NavLink to ="/contact"> Contact Us</NavLink> </li>
+//             <li><NavLink to ="/users"> Users</NavLink> </li>
+//             <li>
+//                 <span className="username">{(user.email)}</span>
+                
+//                 <button id="logout"  onClick={handleLogout}>Log Out</button>
+                
+//             </li>
+//         </ul>
+//     </>:
+//     <>
+//             <ul className="nav">
+//                 <li><NavLink to ="/home"> Home</NavLink> </li>
+//                 <li><NavLink to ="/about"> About Us</NavLink> </li>
+//                 <li><NavLink to ="/product"> Product</NavLink> </li>
+//                 <li><NavLink to ="/pricing"> Pricing</NavLink> </li>
+//                 <li><NavLink to ="/contact"> Contact Us</NavLink> </li>
+//                 <li><NavLink to ="/users"> Users</NavLink> </li>
+                
+//                 <li className="login">
+//                 <span><NavLink to ="/reg"> <button className="reg">Registration</button></NavLink> </span>
+//                 <span><NavLink to ="/log"> <button className="reg">Log In</button></NavLink></span>
+//                 {/* <button id="login" onClick={handleLogin}>Log In</button> */}
+//                 </li>
+//             </ul>
+
+//     </>
+    
+//     }
+
+   
+  
+
+
+
+
+
+// </div>
+
+
+
+
+
+
+//   <div className="nav1">
+
+//                 <ul className="nav">
+//                     <li><NavLink to ="/"> Home</NavLink> </li>
+//                     <li><NavLink to ="/about"> About Us</NavLink> </li>
+//                     <li><NavLink to ="/product"> Product</NavLink> </li>
+//                     <li><NavLink to ="/pricing"> Pricing</NavLink> </li>
+//                     <li><NavLink to ="/contact"> Contact Us</NavLink> </li>
+//                     <li><NavLink to ="/users"> Users</NavLink> </li>
+                    
+                    
+//                         <li>{user.email? <>
+                    
+                            
+//                             <li>
+//                                 <span className="username">{(user.email)}</span>
+                                
+//                                 <button id="logout"  onClick={handleLogout}>Log Out</button>
+                                
+//                             </li>
+                        
+//                             </>:
+//                             <>
+                            
+                                
+                                
+//                                 <li className="login">
+//                                 <span><NavLink to ="/reg"> <button className="reg">Registration</button></NavLink> </span>
+//                                 <span><NavLink to ="/log"> <button className="reg">Log In</button></NavLink></span>
+//                                 {/* <button id="login" onClick={handleLogin}>Log In</button> */}
+//                                 </li>
+                        
+//                             </>
+                    
+//                         }</li>
+
+//                 </ul>
+
+
+//     </div>

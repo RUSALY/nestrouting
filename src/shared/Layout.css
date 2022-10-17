@@ -1,7 +1,8 @@
 .layout,
 .wc{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     
 }
 
@@ -9,11 +10,17 @@
     height: 10rem;
     margin-top: 5rem;
 }
+.nav1{ 
+    width: 80%;
+
+}
 
 .layout ul{
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    align-items: center;
+
+    
 }
 
 .logoimg{
@@ -33,9 +40,35 @@ li{
     color: aliceblue!important;
 
 }
+a{
+    text-decoration: none!important;
+    
+
+}
+
+.reg a{
+    color: black!important;
+   
+
+}
+
+.reg{
+   
+    display: flex;
+    align-items: center;
+}
+
 .username{
     color: aliceblue!important;
     margin-right: 15px;
+}
+.reg{
+    color: black !important;
+}
+.login{
+    display: flex;
+    align-items: center;
+
 }
 
 
